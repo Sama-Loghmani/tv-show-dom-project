@@ -4,20 +4,306 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
     <title>Tv Show App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js" integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
-    <form action="">
+    <header>
+        <form action="">
         <select name="" id="">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+            <option value="">S01E01</option>
+            <option value="">S01E02</option>
+            <option value="">S01E03</option>
+            <option value="">S01E04</option>
+            <option value="">S01E05</option>
+            <option value="">S01E06</option>
+            <option value="">S01E07</option>
+            <option value="">S01E08</option>
+            <option value="">S01E09</option>
+            <option value="">S01E10</option>
+            <option value="">S01E11</option>
+            <option value="">S01E12</option>
+            <option value="">S01E13</option>
+            <option value="">S02E01</option>
+            <option value="">S02E02</option>
+            <option value="">S02E03</option>
+            <option value="">S02E04</option>
+            <option value="">S02E05</option>
+            <option value="">S02E06</option>
+            <option value="">S02E07</option>
+            <option value="">S02E08</option>
+            <option value="">S02E09</option>
+            <option value="">S02E10</option>
+            <option value="">S02E11</option>
+            <option value="">S02E12</option>
+            <option value="">S02E13</option>
+            <option value="">S03E01</option>
+            <option value="">S03E02</option>
+            <option value="">S03E03</option>
+            <option value="">S03E04</option>
+            <option value="">S03E05</option>
+            <option value="">S03E06</option>
+            <option value="">S03E07</option>
+            <option value="">S03E08</option>
+            <option value="">S03E09</option>
+            <option value="">S03E10</option>
+            <option value="">S03E11</option>
+            <option value="">S03E12</option>
+            <option value="">S03E13</option>
+
         </select>
         <input type="text" placeholder="search">
+        <button>Search</button>
     </form>
+    </header>
 
-    <script src="./script"></script>
+    <section class="shows-section">
+         <ul class="card-container">
+             <!-- <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li>
+
+              <li class="card">
+                 <div>
+                   <img src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg" alt="">
+                 </div>       
+              <div>
+               <h4>
+                S01E01
+                pilot
+               </h4>
+               <p class="summary">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.
+               </p>
+              </div>
+             </li> -->
+         </ul>
+        
+        </section>
+
+    <script src="./script.js"></script>
 </body>
 </html>
