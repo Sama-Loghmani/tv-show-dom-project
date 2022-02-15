@@ -16,11 +16,11 @@ const renderData = async () => {
         .map((episode) => {
             return `<li class="card">
                  <div>
-                   <img src="${episode.image.medium}" alt="">
+                   <img src="${episode.image.medium}" alt="${episode.name} image">
                  </div>       
               <div>
                <h4>
-                S${episode.season}E${episode.number}
+                S0${episode.season}E${episode.number}
                 ${episode.name}
                </h4>
                <p class="summary">${episode.summary}</p>
@@ -30,10 +30,47 @@ const renderData = async () => {
         })
         .join("");
     ul.innerHTML = html;
-    console.log(html);
 };
 
 // an eventListener for loading fetched data to the DOM
 document.addEventListener("DOMContentLoader", renderData());
 
-/* */
+/***************************** *sarching section ******************************** */
+
+// getting input element
+let input = document.querySelector("input");
+
+// addeventlistener on input to display shows based on input value
+input.addEventListener("keyup", (e) => {
+    e.preventDefault();
+
+    let inputValue = e.target.value.toLowerCase();
+    console.log(inputValue);
+    const cards = document.querySelectorAll(".card");
+    for (let i = 0; i < cards.length; i++) {
+        if (!cards[i].innerHTML.toLowerCase().includes(inputValue)) {
+            cards[i].style.display = "none";
+        } else {
+            cards[i].style.display = "block";
+        }
+    }
+});
+
+/* ****************************** episodes selctor **********************/
+
+// getting selection element
+const selector = document.getElementById("selector");
+console.log(selector);
+// addeventlistener on selection
+selector.addEventListener("change", () => {
+    const cards = document.querySelectorAll(".card");
+    const option = document.querySelectorAll(".optionClass");
+    const strUser = selector.options[selector.selectedIndex].text;
+    for (let i = 0; i < selector.length; i++) {
+        if (option[i].value === strUser) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none;";
+        }
+    }
+});
