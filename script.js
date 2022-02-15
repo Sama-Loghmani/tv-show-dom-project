@@ -1,76 +1,105 @@
-// fetching data from tvmaze api
+const cardsContainer = document.createElement("div");
+cardsContainer.classList =
+    "p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5";
+const selector = document.querySelector("#episode-selector");
+
 const getData = async () => {
-    const res = await axios.get("https://api.tvmaze.com/shows/1/episodes");
-    return res.data;
+    const showsApi = await axios.get("https://api.tvmaze.com/shows/1/episodes");
+
+    return showsApi;
 };
 
-const ul = document.querySelector(".card-container");
+// function for creating shows section html
+function htmlCreator() {
+    getData().then((res) => {
+        res.data.forEach((episode) => {
+            // create select options
+            const option = document.createElement("option");
+            option.className = "option-class";
+            if (episode.number >= 10) {
+                option.innerHTML = `S0${episode.season}E${episode.number} - ${episode.name}`;
+            } else {
+                option.innerHTML = `S0${episode.season}E0${episode.number} - ${episode.name}`;
+            }
+            selector.appendChild(option);
 
-// a function for rendering data on DOM
-const renderData = async () => {
-    const episodes = await getData();
-    console.log(episodes);
+            // creating single card
 
-    // creating html for adding to the ul element
-    const html = episodes
-        .map((episode) => {
-            return `<li class="card">
-                 <div>
-                   <img src="${episode.image.medium}" alt="${episode.name} image">
-                 </div>       
-              <div>
-               <h4>
-                S0${episode.season}E${episode.number}
-                ${episode.name}
-               </h4>
-               <p class="summary">${episode.summary}</p>
-              </div>
-             </li>
-        `;
-        })
-        .join("");
-    ul.innerHTML = html;
-};
+            const card = document.createElement("div");
 
-// an eventListener for loading fetched data to the DOM
-document.addEventListener("DOMContentLoader", renderData());
+            card.classList = "card-class rounded overflow-hidden shadow-lg";
+            const image = document.createElement("img");
+            image.classList = "w-full";
+            image.src = episode.image.medium;
+            const div1 = document.createElement("div");
+            div1.classList = "px-6 py-4";
+            const title = document.createElement("div");
+            title.classList = "font-bold text-xl mb-2";
+            const episodes = episode.number;
+            if (episodes >= 10) {
+                title.textContent = `S0${episode.season}E${episode.number} - ${episode.name}`;
+            } else {
+                title.textContent = `S0${episode.season}E0${episode.number} - ${episode.name}`;
+            }
+            const pElem = document.createElement("p");
+            pElem.classList = "text-gray-700 text-base";
+            pElem.innerHTML = episode.summary;
+            div1.append(title, pElem);
+            const div2 = document.createElement("div");
+            div2.classList = "px-6 pt-4 pb-2";
+            const span = document.createElement("span");
+            span.classList =
+                "inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2";
+            const link = document.createElement("a");
+            link.href = `${episode.url}`;
+            link.textContent = "Watch Here";
+            span.appendChild(link);
+            div2.appendChild(span);
 
-/***************************** *sarching section ******************************** */
+            card.append(image, div1, div2);
+            cardsContainer.appendChild(card);
+            document.body.appendChild(cardsContainer);
+        });
+    });
+}
+htmlCreator();
 
-// getting input element
+/* **************************************Search section **************************/
 let input = document.querySelector("input");
 
-// addeventlistener on input to display shows based on input value
 input.addEventListener("keyup", (e) => {
     e.preventDefault();
-
     let inputValue = e.target.value.toLowerCase();
-    console.log(inputValue);
-    const cards = document.querySelectorAll(".card");
+    let count = 0;
+    const cards = document.querySelectorAll(".card-class");
     for (let i = 0; i < cards.length; i++) {
         if (!cards[i].innerHTML.toLowerCase().includes(inputValue)) {
             cards[i].style.display = "none";
         } else {
             cards[i].style.display = "block";
+            count++;
         }
     }
+    const span = document.querySelector(".matching-number");
+    span.textContent = `${count} Shows Found`;
 });
 
-/* ****************************** episodes selctor **********************/
-
-// getting selection element
-const selector = document.getElementById("selector");
-console.log(selector);
-// addeventlistener on selection
+/** ------------select option section  --------------- */
 selector.addEventListener("change", () => {
-    const cards = document.querySelectorAll(".card");
-    const option = document.querySelectorAll(".optionClass");
-    const strUser = selector.options[selector.selectedIndex].text;
-    for (let i = 0; i < selector.length; i++) {
-        if (option[i].value === strUser) {
-            cards[i].style.display = "block";
-        } else {
-            cards[i].style.display = "none;";
+    const userOption = selector.options[selector.selectedIndex].text;
+    console.log(selector.length);
+    const cards = document.querySelectorAll(".card-class");
+    const options = document.querySelectorAll(".option-class");
+    console.log(options);
+    if (selector.value === "All") {
+        htmlCreator();
+    } else {
+        for (let i = 0; i < selector.length; i++) {
+            if (options[i].value === userOption) {
+                cards[i].style.display = "block";
+            } else {
+                cards[i].style.display = "none";
+            }
         }
     }
 });
