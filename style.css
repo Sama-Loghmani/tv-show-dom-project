@@ -11,7 +11,7 @@ body {
 }
 
 header img {
-    width: 100%;
+    width:100%;
 }
 
 .cards-container {
@@ -36,8 +36,8 @@ width: 17rem;
 height: 2rem;
 border-radius:10px;
 margin: .7rem;
-background-color: #c0c0c0
 padding: 1rem;
+
 }
 
 .form select {
@@ -52,11 +52,27 @@ padding: 1rem;
 .matching-number {
     /* margin: 1rem; */
     background: #7d0255;
-    /* width: 10rem; */
+    width: 10rem;
+    height: 2rem;
+    align-items: center;
     color: #fff;
     border-radius: 5px;
-    /* padding-left: 1rem; */
+    text-align: center;
+    padding-top: 0.3rem;
 }
 
+@media (max-width: 540px) {
+   header img {
+       width: 800px;
+     
+   }
+   .form {
+     display:flex;
+     flex-direction: column
+}
+   .matching-number {
+   
+   }
+}
 
 
