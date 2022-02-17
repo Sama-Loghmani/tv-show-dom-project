@@ -5,10 +5,10 @@
    
 }
 
-/* body {
+body {
 
-  background:#4f6f52
-} */
+  background:#121329;
+}
 
 .card-class {
     background: #eae6d7;
@@ -60,7 +60,7 @@ select {
 
 .matching-number {
     /* margin: 1rem; */
-    background: #3e2239;
+    /* background: #452323; */
     width: 10rem;
     height: 2rem;
     align-items: center;
