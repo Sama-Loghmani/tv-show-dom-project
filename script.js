@@ -51,12 +51,19 @@ function htmlCreator() {
             div2.classList = "px-6 pt-4 pb-2";
             const span = document.createElement("span");
             span.classList =
-                "inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2";
+                "span1 inline-block rounded-full px-3 py-1 text-sm font-semibold text-white-700 mr-2 mb-2";
+            const span2 = document.createElement("span");
+            span2.classList =
+                "inline-block bg-yellow-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-300 mr-2 mb-2";
+
             const link = document.createElement("a");
+
             link.href = `${episode.url}`;
-            link.textContent = "Watch Here";
+            span2.textContent = episode.rating.average;
+            console.log(episode.rating.average);
+            link.textContent = "Watch Now";
             span.appendChild(link);
-            div2.appendChild(span);
+            div2.append(span, span2);
 
             card.append(image, div1, div2);
             cardsContainer.appendChild(card);
