@@ -60,7 +60,6 @@ function htmlCreator() {
 
             link.href = `${episode.url}`;
             span2.textContent = episode.rating.average;
-            console.log(episode.rating.average);
             link.textContent = "Watch Now";
             span.appendChild(link);
             div2.append(span, span2);
