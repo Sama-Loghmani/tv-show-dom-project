@@ -1,6 +1,6 @@
 const cardsContainer = document.createElement("div");
 cardsContainer.classList =
-    "p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5";
+    "cards-container p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5";
 const selector = document.querySelector("#episode-selector");
 
 const getData = async () => {
@@ -18,8 +18,10 @@ function htmlCreator() {
             option.className = "option-class";
             if (episode.number >= 10) {
                 option.innerHTML = `S0${episode.season}E${episode.number} - ${episode.name}`;
+                option.value = `S0${episode.season}E${episode.number} - ${episode.name}`;
             } else {
                 option.innerHTML = `S0${episode.season}E0${episode.number} - ${episode.name}`;
+                option.value = `S0${episode.season}E0${episode.number} - ${episode.name}`;
             }
             selector.appendChild(option);
 
@@ -85,16 +87,17 @@ input.addEventListener("keyup", (e) => {
 });
 
 /** ------------select option section  --------------- */
-selector.addEventListener("change", () => {
-    const userOption = selector.options[selector.selectedIndex].text;
-    console.log(selector.length);
+selector.addEventListener("change", (e) => {
+    const userOption = e.target.value;
     const cards = document.querySelectorAll(".card-class");
     const options = document.querySelectorAll(".option-class");
-    console.log(options);
-    if (selector.value === "All") {
-        htmlCreator();
+
+    if (selector.value === "all") {
+        for (let element of cards) {
+            element.style.display = "block";
+        }
     } else {
-        for (let i = 0; i < selector.length; i++) {
+        for (let i = 0; i < options.length; i++) {
             if (options[i].value === userOption) {
                 cards[i].style.display = "block";
             } else {
