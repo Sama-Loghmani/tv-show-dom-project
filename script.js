@@ -93,27 +93,27 @@ input.addEventListener("keyup", (e) => {
             cards[i].style.display = "none";
         }
     }
+    //
     const span = document.querySelector(".matching-number");
     span.textContent = `${count} Shows Found`;
 });
 
 /** ------------select option section  --------------- */
-selector.addEventListener("change", (e) => {
-    const userOption = e.target.value;
-    const cards = document.querySelectorAll(".card-class");
-    const options = document.querySelectorAll(".option-class");
 
-    if (selector.value === "") {
-        for (let element of cards) {
-            element.style.display = "block";
+selector.addEventListener("change", (e) => {
+    const cards = document.querySelectorAll(".card-class");
+
+    cards.forEach((card) => {
+        const userOption = card.children[1].children[0].textContent;
+
+        if (e.target.value === "all") {
+            cards.forEach((card) => {
+                card.style.display = "block";
+            });
+        } else if (userOption === e.target.value) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
         }
-    } else {
-        for (let i = 0; i < options.length; i++) {
-            if (options[i].value === userOption) {
-                cards[i].style.display = "block";
-            } else {
-                cards[i].style.display = "none";
-            }
-        }
-    }
+    });
 });
