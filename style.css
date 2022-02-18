@@ -40,23 +40,17 @@ padding: 1rem;
 }
 
  
-select {
-    color: black;
-    
-}
+
 
  
 
-#episode-selector {
-    border: 1px solid #909090;
-    color: black;
-}
-  
 
 .form input {
     border: 1px solid #d8d8d8;
+    
 
 }
+
 
 .matching-number {
     /* margin: 1rem; */

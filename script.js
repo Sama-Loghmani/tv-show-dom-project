@@ -98,7 +98,7 @@ selector.addEventListener("change", (e) => {
     const cards = document.querySelectorAll(".card-class");
     const options = document.querySelectorAll(".option-class");
 
-    if (selector.value === "all") {
+    if (selector.value === "") {
         for (let element of cards) {
             element.style.display = "block";
         }
