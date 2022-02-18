@@ -78,14 +78,19 @@ let input = document.querySelector("input");
 input.addEventListener("keyup", (e) => {
     e.preventDefault();
     let inputValue = e.target.value.toLowerCase();
-    let count = 0;
     const cards = document.querySelectorAll(".card-class");
+
+    let count = 0;
     for (let i = 0; i < cards.length; i++) {
-        if (!cards[i].innerHTML.toLowerCase().includes(inputValue)) {
-            cards[i].style.display = "none";
-        } else {
+        if (
+            cards[i].children[1].children[0].textContent
+                .toLowerCase()
+                .includes(inputValue)
+        ) {
             cards[i].style.display = "block";
             count++;
+        } else {
+            cards[i].style.display = "none";
         }
     }
     const span = document.querySelector(".matching-number");
